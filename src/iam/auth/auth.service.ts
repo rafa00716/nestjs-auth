@@ -15,18 +15,12 @@ export class AuthService {
 
   async createPassword(createPassDto: CreatePassDto) {
     const user = await this.usersService.findOne(createPassDto.userId);
-
     if (!user) {
       ErrorHandler.notFoundEntry('User');
     }
-
     const salt = await bcrypt.genSalt();
-
     const hash = await bcrypt.hash(createPassDto.password, salt);
-
-    user.password = hash;
-
-    return this.usersService.saveUser(user);
+    return this.usersService.update(createPassDto.userId, { password: hash });
   }
 
   async validateUser(loginDto: LoginDto) {

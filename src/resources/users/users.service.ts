@@ -64,8 +64,17 @@ export class UsersService {
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    const userFound = await this.repositoryUser.findOne({
+      where: { id },
+    });
+
+    if (!userFound) {
+      ErrorHandler.notFoundEntry('User');
+    }
+
+    const userMerged = this.repositoryUser.merge(userFound, updateUserDto);
+    return this.repositoryUser.save(userMerged);
   }
 
   async remove(id: string) {
@@ -78,9 +87,5 @@ export class UsersService {
     }
 
     return this.repositoryUser.remove(userFound);
-  }
-
-  saveUser(user: User) {
-    return this.repositoryUser.save(user);
   }
 }
