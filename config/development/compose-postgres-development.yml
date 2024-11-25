@@ -1,0 +1,23 @@
+# docker-compose -f compose-postgres-development.yml --project-name nestjs-auth up -d
+version: "3.9"
+services:
+  postgres:
+    image: postgres:13.6-alpine
+    container_name: nestjs-auth
+    restart: always
+    hostname: postgres-host
+    networks:
+      - postgres-network
+    environment:
+      - POSTGRES_USER=nestjs-auth
+      - POSTGRES_PASSWORD=P4MKaMw4ENtgCco
+      - POSTGRES_DB=nestjs-auth
+    ports:
+      - '5432:5432'
+    volumes: 
+      - postgresql:/var/lib/postgresql/data      
+volumes:
+    postgresql:
+networks:
+    postgres-network:
+        name: postgres-network         
