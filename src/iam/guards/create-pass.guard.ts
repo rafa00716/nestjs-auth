@@ -1,8 +1,8 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Request } from 'express';
 import { Observable } from 'rxjs';
-import { Constant } from '../utils/constants';
-import { ErrorHandler } from 'src/utils/error.handler';
+import { Constant } from '../../utils/constants';
+import { ErrorHandler } from '../../utils/error.handler';
 import { ConfigService } from '@nestjs/config';
 
 const config = new ConfigService();

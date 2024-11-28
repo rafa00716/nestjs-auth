@@ -6,11 +6,11 @@ import {
   Request,
   Get,
 } from '@nestjs/common';
-import { CreatePassGuard } from 'src/guards/create-pass.guard';
+import { CreatePassGuard } from '../guards/create-pass.guard';
 import { AuthService } from './auth.service';
 import { CreatePassDto } from './dto/create-password.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { JwtAuthGuard } from '../../guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {

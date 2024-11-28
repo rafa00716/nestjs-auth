@@ -13,7 +13,7 @@ const DB_CONFIG: TypeOrmModuleOptions = {
   logging: false,
   retryAttempts: 2,
   retryDelay: 2000,
-  synchronize: true,
+  synchronize: false,
 };
 
 @Module({
