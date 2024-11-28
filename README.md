@@ -184,8 +184,12 @@ To set up the necessary dependencies for this project, you will need to run the 
   ```bash
   npm install class-validator class-transformer
   ```
-
-### 4. Password Hashing
+### 4. Mapped Types
+- Install `@nestjs/mapped-types` for transforming and deriving types:
+  ```bash
+  npm i --save @nestjs/mapped-types
+  ```
+### 5. Password Hashing
 - Install `bcrypt` for password hashing:
   ```bash
   npm i bcrypt
@@ -195,7 +199,7 @@ To set up the necessary dependencies for this project, you will need to run the 
   npm i -D @types/bcrypt
   ```
 
-### 5. Authentication
+### 6. Authentication
 - Install JWT and Passport-JWT for implementing JWT authentication:
   ```bash
   npm install --save @nestjs/jwt passport-jwt
