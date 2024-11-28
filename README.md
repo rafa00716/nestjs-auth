@@ -163,7 +163,7 @@ This authentication system can be extended to add more features such as:
 - **Rate Limiting**: Rate limiting can be integrated to prevent abuse and ensure security.
 
 
-## If you just want to copy the IAM and database modules, you may need the following installations:
+## If you just want to copy the IAM and database modules to another project, you may need the following installations:
 
 To set up the necessary dependencies for this project, you will need to run the following commands:
 
