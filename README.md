@@ -83,6 +83,30 @@ Define the following environment variables before running the application.
 
 Keep these variables secure, especially passwords and secret keys. Use a `.env` file and do not include it in version control.
 
+# Running a PostgreSQL Database in a Container for Development
+
+To create a PostgreSQL database container for development, you can use the provided Docker Compose file (`docker-compose.yml`) available in this repository: [nestjs-auth](https://github.com/rafa00716/nestjs-auth/tree/main).
+
+Follow these steps:
+
+1. Make sure you have Docker and Docker Compose installed on your machine.
+
+2. Navigate to the root directory of the repository where the `docker-compose.yml` file is located, wich is `config\development\compose-postgres-development.yml` in this repo.
+
+3. Run the following command to start the container:
+   ```bash
+   docker-compose up -d
+   ```
+   This command will create and run a PostgreSQL container in detached mode.
+
+4. The PostgreSQL container will be configured with the settings specified in the `docker-compose.yml` file, including the database name, user, and password.
+
+5. To stop the container, run:
+   ```bash
+   docker-compose down
+   ```
+
+Using this Docker setup will help you easily manage your development database without needing to install PostgreSQL directly on your local machine.
 
 
 ## Running the Application
@@ -137,6 +161,60 @@ This authentication system can be extended to add more features such as:
 - **Two-Factor Authentication (2FA)**: Enhance security by adding two-factor authentication for user login.
 - **Account Verification**: Send email verification links upon registration to validate user email addresses.
 - **Rate Limiting**: Rate limiting can be integrated to prevent abuse and ensure security.
+
+
+## If you just want to copy the IAM and database modules, you may need the following installations:
+
+To set up the necessary dependencies for this project, you will need to run the following commands:
+
+### 1. Environment Configuration
+- Install the NestJS configuration package to manage environment variables:
+  ```bash
+  npm i --save @nestjs/config
+  ```
+
+### 2. Database Setup
+- Install TypeORM, PostgreSQL, and related dependencies for database interaction:
+  ```bash
+  npm install --save @nestjs/typeorm typeorm postgres pg
+  ```
+
+### 3. Validation
+- Install `class-validator` and `class-transformer` for request data validation:
+  ```bash
+  npm install class-validator class-transformer
+  ```
+
+### 4. Password Hashing
+- Install `bcrypt` for password hashing:
+  ```bash
+  npm i bcrypt
+  ```
+- Install TypeScript types for `bcrypt` (for development purposes):
+  ```bash
+  npm i -D @types/bcrypt
+  ```
+
+### 5. Authentication
+- Install JWT and Passport-JWT for implementing JWT authentication:
+  ```bash
+  npm install --save @nestjs/jwt passport-jwt
+  ```
+- Install TypeScript types for `passport-jwt` (for development purposes):
+  ```bash
+  npm install --save-dev @types/passport-jwt
+  ```
+- Install Passport and Passport Local strategy for user authentication:
+  ```bash
+  npm install --save @nestjs/passport passport passport-local
+  ```
+- Install TypeScript types for `passport-local` (for development purposes):
+  ```bash
+  npm install --save-dev @types/passport-local
+  ```
+
+After running these commands, all the necessary dependencies for your NestJS project will be installed and configured, enabling you to build authentication and database integration with PostgreSQL.
+
 
 ## License
 
