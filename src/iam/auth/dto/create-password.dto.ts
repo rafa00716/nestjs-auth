@@ -1,13 +1,17 @@
-import { IsString, IsUUID, MinLength, IsNotEmpty } from 'class-validator';
+import { IsString, MinLength, IsNotEmpty, IsEmail } from 'class-validator';
 
 export class CreatePassDto {
   @IsString()
-  @IsUUID()
+  @IsEmail()
   @IsNotEmpty()
-  userId: string;
+  email: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(8, { message: 'The password must be at least 8 characters long' })
   password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  token: string;
 }

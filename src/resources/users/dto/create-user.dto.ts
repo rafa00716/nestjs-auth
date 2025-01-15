@@ -40,4 +40,8 @@ export class CreateUserDto {
   @IsOptional()
   @IsUUID()
   upatedBy?: User;
+
+  @IsOptional()
+  @IsString()
+  resetPasswordToken?: string;
 }

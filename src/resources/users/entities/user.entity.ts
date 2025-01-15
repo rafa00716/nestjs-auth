@@ -30,6 +30,9 @@ export class User {
   @Column({ nullable: true, select: false })
   password: string;
 
+  @Column({ nullable: true })
+  resetPasswordToken: string;
+
   @ManyToMany(() => Role, (roles) => roles.id, {
     eager: true,
   })
